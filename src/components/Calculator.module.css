@@ -1,0 +1,143 @@
+.calc {
+  display: grid;
+  width: 100%;
+  height: calc(100vh - 30px);
+  grid-template-rows: 1fr 4fr;
+  grid-auto-rows: 100px;
+}
+
+.calcHistoryBtn {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.603);
+  outline: 1px rgb(161, 161, 161) solid;
+  position: absolute;
+  left: calc(100vw - 50px);
+}
+.calcHistoryBtn:hover {
+  background-color: rgb(64, 64, 64);
+}
+
+.calcHistory {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: column-reverse;
+  position: absolute;
+  width: 100vw;
+  height: 75%;
+  top: 100vh;
+  background-color: rgba(0, 0, 0, 0.761);
+  animation: forwards historyslide 0.2s ease;
+  overflow-y: hidden;
+  /* user-select: none; */
+}
+
+.calcHistoryNone {
+  display: none;
+}
+
+.calcHistory > li {
+  color: #ffffff;
+  font-size: 25px;
+}
+
+.calc_window {
+  min-height: 100px;
+  max-width: 100%;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  justify-content: flex-end;
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+}
+
+.window_result {
+  font-size: clamp(1rem, 50px, 2rem);
+}
+
+.calc_actions {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
+}
+
+.action {
+  width: 98%;
+  height: 98%;
+  background-color: rgba(0, 0, 0, 0.603);
+  border: 1px solid #222222;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s,
+    transform 0.1s;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.action:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow 0.2s;
+}
+
+.action:active {
+  border-color: #000000;
+  transform: scale(0.96);
+}
+
+.action:disabled {
+  border-color: #dddddd;
+  color: #dddddd;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.action:focus {
+  border: none;
+  outline: none;
+}
+
+.action:hover {
+  background-color: rgba(101, 101, 101, 0.603);
+}
+
+.action p {
+  font-size: 30px;
+}
+
+.plus,
+.result {
+  height: 99%;
+  grid-row: span 2;
+}
+
+@keyframes historyslide {
+  from {
+    top: 100vh;
+  }
+  to {
+    top: 25vh;
+  }
+}
+
